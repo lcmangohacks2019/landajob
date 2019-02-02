@@ -7,9 +7,11 @@ import { WebAuth0AuthClient } from '@8base/web-auth0-auth-client';
 import Sidebar from './shared/Sidebar';
 import PopupCardExample from './shared/Popupcard';
 import Profile from './components/Profile';
+import UserCard from "./components/UserCard";
 import { ToastContainer, toast } from 'react-toastify';
 import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './App.css';
+
 
 const ENDPOINT_URL = 'https://api.8base.com/cjrmowyc0000001qghp3ajxap'
 const AUTH_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';

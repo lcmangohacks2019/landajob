@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import gql from 'graphql-tag';
 
 class PopupCardExample extends React.Component {
   constructor(props) {
@@ -39,5 +40,24 @@ class PopupCardExample extends React.Component {
     );
   }
 }
+
+const SKILL_LIST_QUERY = gql`
+  query SkillList {
+    employeesList{
+      items{
+        fullName
+        goalJob{
+          skill{
+            items{
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+console.log(SKILL_LIST_QUERY);
 
 export default PopupCardExample;

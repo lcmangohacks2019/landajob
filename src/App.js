@@ -8,9 +8,11 @@ import Sidebar from './shared/Sidebar';
 import PopupCardExample from './shared/Popupcard';
 import Profile from './components/Profile';
 import UserCard from "./components/UserCard";
+import Radar from "./components/Radar";
 import { ToastContainer, toast } from 'react-toastify';
 import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './App.css';
+
 
 
 const ENDPOINT_URL = 'https://api.8base.com/cjrmowyc0000001qghp3ajxap'
@@ -61,6 +63,7 @@ class App extends React.PureComponent {
           </div>
           <h1> <PopupCardExample /> </h1>
           <h3> <Profile /> </h3>
+          <h3>  <Radar/> </h3>
           <h4> <UserCard /> </h4>
         </div>
        )}

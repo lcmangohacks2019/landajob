@@ -1,7 +1,25 @@
 import React, { Component } from 'react'
-import { Progress } from 'reactstrap';
-
+import Toggle from "./Toggle";
+import { ButtonGroup } from "reactstrap";
+import ProgressBars from "./ProgressBars";
 export default class Profile extends Component {
+
+    state = {
+        skills: [
+            {
+                title:"Java",
+                progress: "20"
+            },
+            {
+                title:"Python",
+                progress: "100"
+            },
+            {
+                title:"GraphQL",
+                progress: "60"
+            }
+        ]
+    }
 
   render() {
     return (
@@ -9,19 +27,19 @@ export default class Profile extends Component {
             <div className="row">
                 <div className="col">
                     <h1>Andres De Jesus Cabrera</h1>
-                    <h4 className="text-right">Java</h4>
-                    <Progress color="danger" value="25">25%</Progress>
-                    <h4 className="text-right">Graph QL</h4>
-                    <Progress value={50}>50%</Progress>
-                    <h4 className="text-right">React</h4>
-                    <Progress color="warning" value={75}>75% You're almost there!</Progress>
-                    <h4 className="text-right">Python</h4>
-                    <Progress color="success" value="100">You did it!</Progress>
+                    {
+                        this.state.skills.map(
+                            skill => (<ProgressBars title={skill.title} progress={skill.progress}/>)
+                        )
+                    }
                 </div>
             </div>
-            <div className="row">
+            <div className="row my-3">
                 <div className="col">
-  
+                    <ButtonGroup taps className="justify-content-center w-100">
+                        <Toggle title="Settings"/>
+                        <Toggle title="Stats"/>
+                    </ButtonGroup>
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@ class PopupCardExample extends React.Component {
 
   render() {
     return (
+      
       <div>
         <Button color="danger" onClick={this.toggle}>Click me for test</Button>
         <Container>

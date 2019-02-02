@@ -7,7 +7,8 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Row, Col
 } from 'reactstrap';
-
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
+import Profile from "../components/Profile"
 
 
 const Example = (props) => {
@@ -63,7 +64,21 @@ class Radar extends React.Component {
         };
 
         return (
-            <div className="row">
+            <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    flipDirection="horizontal" // horizontal or vertical
+    ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
+    // if you pass isFlipped prop component will be controlled component.
+    // and other props, which will go to div
+    style={{ width: '400px', height: '400px' }} /// these are optional style, it is not necessary
+  >
+    <FrontSide
+      style={{
+        backgroundColor: '#ffffff',
+      }}
+    >
+                  <div className="row">
                 <Row>
                     <Col sm="12">
                         <Card>
@@ -80,6 +95,13 @@ class Radar extends React.Component {
                     </Col>
                 </Row>
             </div>
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#ffffff'}}>
+<Profile />
+    </BackSide>
+  </Flippy>
+
         );
     }
 }

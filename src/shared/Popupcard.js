@@ -1,7 +1,7 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
 import React from 'react';
-import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import gql from 'graphql-tag';
 
 class PopupCardExample extends React.Component {
@@ -22,9 +22,11 @@ class PopupCardExample extends React.Component {
 
   render() {
     return (
-      <div>
+      <div>        
+      <Container>
+      <Row>
+      <Col xs="4">
         <Button color="danger" onClick={this.toggle}>Click me for test</Button>
-        <Container>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Overall Skill Name here</ModalHeader>
           <ModalBody>
@@ -35,6 +37,8 @@ class PopupCardExample extends React.Component {
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
+        </Col>
+        </Row>
         </Container>
       </div>
     );

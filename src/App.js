@@ -5,12 +5,9 @@ import { graphql } from "react-apollo";
 import { EightBaseAppProvider } from '@8base/app-provider';
 import { WebAuth0AuthClient } from '@8base/web-auth0-auth-client';
 import Sidebar from './shared/Sidebar';
-import PopupCardExample from './shared/Popupcard';
-import Profile from './components/Profile';
-import UserCard from "./components/UserCard";
-import Radar from "./components/Radar";
+import Routes from './routes/index';
 import { ToastContainer, toast } from 'react-toastify';
-import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './App.css';
 
 
@@ -56,16 +53,10 @@ class App extends React.PureComponent {
         onRequestError={this.onRequestError}
       >
       {({ loading }) => (
-        <div id="App">
-          <Sidebar />
-          <div id="page-wrap">
-            <h1>Testing the sidebar</h1>
-          </div>
-          <h1> <PopupCardExample /> </h1>
-          <h3> <Profile /> </h3>
-          <h3>  <Radar/> </h3>
-          <h4> <UserCard /> </h4>
-        </div>
+        <div>
+            <Sidebar />
+            <Routes />
+        </div>   
        )}
      </EightBaseAppProvider>
     </BrowserRouter>

@@ -8,15 +8,11 @@ export default props => {
         Home
       </a>
 
-      <a className="menu-item" href="/Profile">
-        Profile
-      </a>
-
       <a className="menu-item" href="/Skills">
         Skills
       </a>
 
-      <a className="menu-item" href="/App">
+      <a className="menu-item" href="/Achievements">
         Achievements
       </a>
     </Menu>

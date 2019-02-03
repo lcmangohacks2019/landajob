@@ -8,10 +8,9 @@ import App from '../components/ProfilePage';
 export const Routes = () => (
   <Router>
     <div>
-      <Route exact path="/" component={Profile} />
-      <Route path="/Skills" component={UserCard} />
-      <Route path="/Profile" component={GrowthBoard} />
-      <Route path="/topics" component={App} />
+      <Route exact path="/" component={UserCard} />
+      <Route path="/Skills" component={GrowthBoard} />
+      <Route path="/Achievements" component={Profile} />
     </div>
   </Router>
 );

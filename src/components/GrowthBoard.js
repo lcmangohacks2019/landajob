@@ -108,13 +108,15 @@ const PRODUCTS = [
 class GrowthBoard extends React.Component {
     render() {
         return (
-            <div>
+            <div class="container">
+            <div class="d-flex justify-content-center">
                 <row>
                     <colSpan>
                         <FilterableProductTable products={PRODUCTS} />
                     </colSpan>
                 </row>
 
+            </div>
             </div>
         )
     };

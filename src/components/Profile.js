@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import Toggle from "./Toggle";
 import { ButtonGroup } from "reactstrap";
 import ProgressBars from "./ProgressBars";
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Row, Col
-} from 'reactstrap';
+// import {
+//     Card, CardImg, CardText, CardBody,
+//     CardTitle, CardSubtitle, Button, Row, Col
+// } from 'reactstrap';
 export default class Profile extends Component {
 
     state = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { cpus } from 'os';
+// import ReactDOM from 'react-dom';
+// import { cpus } from 'os';
 
 class ProductCategoryRow extends React.Component {
     render() {

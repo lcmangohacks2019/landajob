@@ -16,7 +16,7 @@ export default props => {
         Skills
       </a>
 
-      <a className="menu-item" href="/Achievements">
+      <a className="menu-item" href="/App">
         Achievements
       </a>
     </Menu>

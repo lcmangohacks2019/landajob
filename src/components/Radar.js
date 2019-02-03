@@ -1,14 +1,12 @@
 import React from 'react';
-import { Progress } from 'reactstrap';
 import RadarChart from 'react-svg-radar-chart';
-import 'react-svg-radar-chart/build/css/index.css'
-import Popupcard from "../shared/Popupcard"
+import 'react-svg-radar-chart/build/css/index.css';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Row, Col
 } from 'reactstrap';
-
-
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
+import Profile from "../components/Profile"
 
 const Example = (props) => {
     return (
@@ -26,9 +24,9 @@ const Example = (props) => {
     );
 };
 
+const chartCaptionDOMElements = document.getElementsByClassName("caption");
 
 class Radar extends React.Component {
-
     render() {
         const data = [
             {
@@ -63,23 +61,43 @@ class Radar extends React.Component {
         };
 
         return (
-            <div className="row">
-                <Row>
-                    <Col sm="12">
-                        <Card>
-                            <RadarChart
-                                captions={captions
-                                }
-                                data={data
-                                }
-                                size={400}
-                            />
-                            <CardBody>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
+            <Flippy
+                flipOnHover={false} // default false
+                flipOnClick={true} // default false
+                flipDirection="horizontal" // horizontal or vertical
+                ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
+                // if you pass isFlipped prop component will be controlled component.
+                // and other props, which will go to div
+                style={{ width: '400px', height: '400px' }} /// these are optional style, it is not necessary
+            >
+                <FrontSide
+                    style={{
+                        backgroundColor: '#ffffff',
+                    }}
+                >
+                    <div className="row">
+                        <Row>
+                            <Col sm="12">
+                                <Card>
+                                    <RadarChart
+                                        captions={captions
+                                        }
+                                        data={data
+                                        }
+                                        size={400}
+                                    />
+                                    <CardBody>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </div>
+                </FrontSide>
+                <BackSide
+                    style={{ backgroundColor: '#ffffff' }}>
+                    <Profile />
+                </BackSide>
+            </Flippy>
         );
     }
 }

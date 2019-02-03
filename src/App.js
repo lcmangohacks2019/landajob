@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 // import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './App.css';
 import { jobOpnings, goalJobSkills, currentJobSkills, employee, employeeList, UserSkillList } from "./graphql/query";
-
+import  Navbar from "./components/navbar"
 
 const ENDPOINT_URL = 'https://api.8base.com/cjrmowyc0000001qghp3ajxap'
 const AUTH_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';
@@ -60,6 +60,7 @@ class App extends React.PureComponent {
         <div>
             <Sidebar />
             <Routes />
+            
         </div>   
        )}
      </EightBaseAppProvider>

@@ -45,6 +45,8 @@ class Radar extends React.Component {
         };
 
         return (
+            <div class="container">
+            <div class="d-flex justify-content-center">
             <Flippy
                 flipOnHover={false} // default false
                 flipOnClick={true} // default false
@@ -82,6 +84,8 @@ class Radar extends React.Component {
                     <Profile />
                 </BackSide>
             </Flippy>
+            </div>
+            </div>
         );
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Media, Row } from 'reactstrap';
+import { Card, Media, Row, Col } from 'reactstrap';
 import Radar from '../components/Radar';
 
 function Welcome(props) {
@@ -22,30 +22,26 @@ function Welcome(props) {
 
 const UserCard = () => {
   return (
-      <div class="container">
-        <div class="justify-content-center">
-          <div className="row">
-            <Row>
-              <div class="col-5">
-                <Card>
-                  <Media className="m-6">
-                  <Media left href="#">
-                    <img src="https://via.placeholder.com/100x100/"/>
-                  </Media>
-                  <Media body>
-                    <Media heading>
-                      Media heading
+    <div class="container">
+      <Row>
+        <Col>
+          <Card>
+            <Media >
+              <Media left href="#">
+                <img src="https://via.placeholder.com/300x300/" />
+              </Media>
+              <Media body>
+                <Media heading>
+                  Media heading
                     </Media>
-                  </Media>
-                </Media>
-                </Card>
-              </div>
-             </Row>
-            </div>
-          <div>
-          <Radar />
-        </div>
-      </div>
+              </Media>
+            </Media>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Radar />
+      </Row>
     </div>
   );
 };

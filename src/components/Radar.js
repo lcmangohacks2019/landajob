@@ -18,54 +18,69 @@ am4core.useTheme(am4themes_animated);
 class Radar extends Component {
   componentDidMount() {
 
-    let chart = am4core.create("chartdiv", am4charts.RadarChart);
+/* Create chart instance */
+let chart = am4core.create("chartdiv", am4charts.RadarChart);
 
-    chart.data = [{
-        "Skill": "Java",
-        "litres": 501
-      }, {
-        "Skill": "PaaS",
-        "litres": 301
-      }, {
-        "Skill": "SaaS",
-        "litres": 266
-      }, {
-        "Skill": "IaaS",
-        "litres": 165
-      }, {
-        "Skill": "React",
-        "litres": 139
-      }, {
-        "Skill": "Database",
-        "litres": 336
-      }, {
-        "Skill": "Git",
-        "litres": 290
-      }, {
-        "Skill": "Containers",
-        "litres": 325
-      }, {
-        "Skill": "CICD",
-        "litres": 40
-      }];
+/* Add data */
+chart.data = [{
+  "Skills": "C#",
+  "Skill Points": 501,
+  "units": 250
+}, {
+  "Skills": "SaaS",
+  "Skill Points": 301,
+  "units": 222
+}, {
+  "Skills": "IaaS",
+  "Skill Points": 266,
+  "units": 179
+}, {
+  "Skills": "PaaS",
+  "Skill Points": 165,
+  "units": 298
+}, {
+  "Skills": "DCIC",
+  "Skill Points": 139,
+  "units": 299
+}, {
+  "Skills": "Docker",
+  "Skill Points": 336,
+  "units": 185
+}, {
+  "Skills": "Git",
+  "Skill Points": 290,
+  "units": 150
+}, {
+  "Skills": "ASP.NET",
+  "Skill Points": 325,
+  "units": 382
+}, {
+  "Skills": ".NET",
+  "Skill Points": 40,
+  "units": 172
+}];
 
-  /* Create axes */
-  let series = chart.series.push(new am4charts.RadarSeries());
-  series.dataFields.valueY = "litres";
-  series.dataFields.categoryX = "Skill";
-  series.name = "Sales";
-  series.strokeWidth = 3;
-  series.zIndex = 2;
-  series.stacked = true;
+/* Create axes */
+let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "Skills";
 
-  let series2 = chart.series.push(new am4charts.RadarColumnSeries());
-  series2.dataFields.valueY = "units";
-  series2.dataFields.categoryX = "Skill";
-  series2.name = "Senior Software Developer";
-  series2.strokeWidth = 0;
-  series2.columns.template.fill = am4core.color("#CDA2AB");
-  series2.columns.template.tooltipText = "Series: {name}\nCategory: {categoryX}\nValue: {valueY}";
-  series2.stacked = true;
+let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+/* Create and configure series */
+let series = chart.series.push(new am4charts.RadarSeries());
+series.dataFields.valueY = "Skill Points";
+series.dataFields.categoryX = "Skills";
+series.name = "Current Skills";
+series.strokeWidth = 3;
+series.zIndex = 2;
+
+let series2 = chart.series.push(new am4charts.RadarColumnSeries());
+series2.dataFields.valueY = "units";
+series2.dataFields.categoryX = "Skills";
+series2.name = "Next Level";
+series2.strokeWidth = 0;
+series2.columns.template.fill = am4core.color("#CDA2AB");
+series2.columns.template.tooltipText = "Series: {name}\nCategory: {categoryX}\nValue: {valueY}";
   }
 
   componentWillUnmount() {
@@ -94,7 +109,7 @@ class Radar extends Component {
                         <Row>
                             <Col>
                                 <Card>
-                                <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
+                                <div id="chartdiv" style={{ width: "650px", height: "650px" }}></div>
                                     <CardBody>
                                     </CardBody>
                                 </Card>

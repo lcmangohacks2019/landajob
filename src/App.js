@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { graphql } from "react-apollo";
 import { EightBaseAppProvider } from '@8base/app-provider';
 import { WebAuth0AuthClient } from '@8base/web-auth0-auth-client';
 import Sidebar from './shared/Sidebar';
 import Routes from './routes/index';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 // import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './App.css';
-import { jobOpnings, goalJobSkills, currentJobSkills, employee, employeeList, UserSkillList } from "./graphql/query";
 
 
 const ENDPOINT_URL = 'https://api.8base.com/cjrmowyc0000001qghp3ajxap'

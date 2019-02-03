@@ -1,29 +1,38 @@
 import gql from "graphql-tag";
 
-
-const employeeList = gql`{
-    employeesList{
-        items{
-            id,
+// const employee = gql`
+//   query{
+//   employee(id: "cjrnnfvx4006v01pd02v6kwvf"){
+//     fullName,
+//     userSkills{
+//       id,
+//       title,
+//       points,
+//       weight,
+//     }
+//   }
+// }`;
+const Employee = (userID) => {
+    let employee = gql`
+    query employeeFullname{
+        employee (id: $userID) {
             fullName,
-            currentJob {
-                id
-            },
-            goalJob {
-                id
-            },
+            Level,
+            }
         }
-    }
-}`;
+    `;
+return employee
+}
+//const Employee = ("cjrnnfvx4006v01pd02v6kwvf") => gql
+//     <Query query={employee}>
+//       {({ loading, error, data }) => {
+//         if (loading) return "Loading...";
+//         if (error) return `Error! ${error.message}`;
+//         if (data) return(data);
+//     }}
+// </Query>
 
-const employee = (userID) => gql`
-  user(id: {${userID}) {
-    firstName
-    lastName
-    groups {
-      name
-    }
-  }`;
+
 
 const currentJobSkills = (jobID) => gql`
 job(id:${jobID}){
@@ -66,4 +75,4 @@ employee(id:${employeeID}){
   }
 `
 
-export { jobOpnings, goalJobSkills, currentJobSkills, employee, employeeList, UserSkillList }
+export { jobOpnings, goalJobSkills, currentJobSkills, Employee, UserSkillList }

@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import './App.css';
 
 
-const ENDPOINT_URL = 'https://api.8base.com/cjrmowyc0000001qghp3ajxap'
+const ENDPOINT_URL = 'https://api.8base.com/cjrmowyc0000001qghp3ajxap/'
 const AUTH_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';
 const AUTH_DOMAIN = 'auth.8base.com';
 

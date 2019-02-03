@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import Toggle from "./Toggle";
 import { ButtonGroup } from "reactstrap";
 import ProgressBars from "./ProgressBars";
-import { Employee } from "../graphql/query";
+import {EmployeeTable} from "../graphql/query"
+import { compose } from 'react-compose';
+import gql from "graphql-tag";
 
 
 class Profile extends Component {
@@ -28,10 +30,7 @@ class Profile extends Component {
         userID: "cjrnnfvx4006v01pd02v6kwvf"
     }
 
-    componentDidMount(){
-        Employee(this.state.userID)
-        console.log()
-    }
+    
 
   render() {
     return (
@@ -56,9 +55,27 @@ class Profile extends Component {
                     </ButtonGroup>
                 </div>
             </div>
+            <div className="row">
+                <div className="col">
+                    {
+                        EmployeeTable
+                    }
+                </div>
+            </div>
         </div>
     )
   }
 }
-
-export default Profile;
+const Employee = (userID) => {
+    let employee = gql`
+    query employeeFullname{
+        employee (id: $userID) {
+            fullName,
+            Level,
+            }
+        }
+    `
+    return employee;
+}
+export default compose(Employee)(Profile)
+// export default Profile;

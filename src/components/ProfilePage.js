@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
+import GrowthBoard from '../components/GrowthBoard';
 //import './App.css';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_animated);
+
+const PRODUCTS = [
+  { category: 'Java', price: '15', stocked: true, name: 'SpringBoot' },
+  { category: 'Java', price: '1', stocked: true, name: 'Spring' },
+  { category: 'Java', price: '5', stocked: false, name: 'Basketball' },
+  { category: 'SaaS', price: '2', stocked: true, name: 'Amazon' },
+  { category: 'SaaS', price: '4', stocked: false, name: 'Google' },
+  { category: 'SaaS', price: '9', stocked: true, name: 'Microsoft' }
+];
+
 
 class ProfilePage extends Component {
   componentDidMount() {
@@ -13,7 +24,7 @@ class ProfilePage extends Component {
     chart.paddingRight = this.props.paddingRight;
 
     let data = [];
-    let visits = 10;
+    let visits = 15;
     for (let i = 1; i < 366; i++) {
       visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
       data.push({ date: new Date(2018, 0, i), name: "name" + i, value: visits });
@@ -50,7 +61,10 @@ class ProfilePage extends Component {
 
   render() {
     return (
+      <div>
       <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
+      <div> <GrowthBoard/>  </div>
+      </div>
     );
   }
 }
